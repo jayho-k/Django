@@ -12,12 +12,20 @@
   - 요청
   - 응답
 
-- Static web page(정적 웹페이지)
+
+
+
+- ##### Static web page(정적 웹페이지)
+
   - 서버가 정적 웹 페이지에 대한 요청을 받은 경우
     서버는 추가적인 처리 과정 없이 클라이언트에게 응답을 보냄
   - 따라서 모든 상황에서 모든 사용자에게 동일한  정보를 표시
   - 일반적으로 HTML, CSS, JavaScript로 작성된다.
-- Dynamic web page(동적 웹페이지)
+
+
+
+- ##### Dynamic web page(동적 웹페이지)
+
   - 서버는 추가적인 처리과정 이후 클라이언트에게 응답을 보낸다
   - 방문자와 상호작용하기 때문에 페이지 내용은 그때그때 다르다
   - 서버 사이드 프로그래밍 언어(python등등)가 사용되며 파일을 처리하고 데이터 베이스와의 상호작용이 이루어진다.
@@ -27,11 +35,12 @@
 - Framework Architecture
   - MVC Dssign Pattern (model- view-controaller)
   - 소프트웨어 공학에서 사용되는 디자인 패턴 중 하나
-  - 하지만 장고는 MTV pattern이라고 한다(model - tamplate - view)
+  - 하지만 장고는 **MTV pattern**이라고 한다**(model - tamplate - view)**
 
 
 
-- MTV란?
+- ##### MTV란?
+  
   - Model
     - 응용프로그램의 데이터 구조를 정의하고 DB의 기록을 관리(추가, 수정, 삭제)
   - Template
@@ -41,14 +50,16 @@
   - View
     - HTTP 요청을 수신하고 HTTP응답을 반환
     - Model을 통해 요청을 충족시키는데 필요한 데이터에 접근
-    - tmaplate에게 응답의 서식 설정을 맡김
+    - tamplate에게 응답의 서식 설정을 맡김
     - 어떤 데이터를 보여주지?? (함수)
 
 
 
 - MTV pattern
 
-![image-20220302092315688](01Django.assets/image-20220302092315688.png)
+![image-20220303091414001](01Django.assets/image-20220303091414001.png)
+
+출처: https://developer.mozilla.org/en-US/docs/Learn/server-side/Django/Introduction
 
 1. HTTP request
 2. URLS
@@ -265,28 +276,33 @@ def index(request):
 
   1. 폴더를 최상위층에다가 만든다
      - 이유: 장고가 그 폴더를 읽을 수 없다.
-
   2. 그뒤에 settings를 들어가서 TEMPLATES를 찾는다
-
   3. 그리고  [BASE_DIR/ 'templates',],를 적어준다
-
+     ![image-20220302154019193](01Django.assets/image-20220302154019193.png)
      - BASE DIR?
        - 현재 장고프로젝트를 가지고 있는 최상단 폴더
-
      - templates
        - 객체지향 파일 경로 위치
+       - 왜 이러한 경로를 쓸까??
+         - macOS와 window등등 운영체제가 다양하기 때문에 하나로 통일해주기 위함이다
 
-- 왜 이러한 경로를 쓸까??
+  4. 마지막으로 navbar를 원하는 html에 확장을 시켜준다
 
-  - macOS와 window등등 운영체제가 다양하기 때문에 하나로 통일해주기 위함이다
+  
 
-![image-20220302154019193](01Django.assets/image-20220302154019193.png)
+  ![image-20220302170610071](01Django.assets/image-20220302170610071.png)
 
 
 
-- include
+- ##### include
+
   - base template이 너무 커지게 된다면 article에 있는 templates에다가 따로 _navbar.html등등을 만들어주어 따로 설계를 하게 되면 된다.
-  - 이렇게 하면 더욱 깔끔하게 정리할 수 있다
+  - 이렇게 하면 더욱 깔끔하게 정리할 수 있다.
+
+- 순서
+
+  1. _nav.html (등등) 나눠주고 싶은 html를 만들어준다
+  2. 그리고 base.html에 include를 추가 해준다.
 
 ![image-20220302155838711](01Django.assets/image-20220302155838711.png)
 
