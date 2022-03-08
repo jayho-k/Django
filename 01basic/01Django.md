@@ -87,24 +87,40 @@ url ==> view ==> template
 
 3. 프로젝트 생성
 
-   - django-admin pip startproject {프로젝트 이름} .
+   - django-admin startproject {프로젝트 이름} .
 
 4. 서버켜서 로켓확인
 
 5. 앱 생성
 
+   - $ python manage.py startapp articles
    - settings.py에 애플리케이션을 등록한다
    - urls.py로 url과 view를 매핑한다
 
-6. 앱 등록
+6. 앱
+
+   - settings에 Installed application에 article을 생성해 준다
+
+   - url ==> view ==> template
+
+   - url
+
+     - from articles import views
+     - url => print(  {    }  , views.{    } )
 
    - view함수를 작성한다 => 관련된 html파일을 렌더한다.
 
-7. html파일을 만들어준다
+     - ```python
+       def {    }(request):
+           context={
+               'name':'jang'
+           }
+           return render(request, '{  }.html', context)
+       ```
 
-   - 이때, 앱 안에 templates라는 폴더 안에 해당 html파일을 만들어 준다.
+   - template
 
-
+     - 이때, 앱 안에 templates라는 폴더 안에 해당 html파일을 만들어 준다.
 
 
 
@@ -285,12 +301,11 @@ def index(request):
        - 객체지향 파일 경로 위치
        - 왜 이러한 경로를 쓸까??
          - macOS와 window등등 운영체제가 다양하기 때문에 하나로 통일해주기 위함이다
+4. 마지막으로 navbar를 원하는 html에 확장을 시켜준다.
 
-  4. 마지막으로 navbar를 원하는 html에 확장을 시켜준다
 
-  
 
-  ![image-20220302170610071](01Django.assets/image-20220302170610071.png)
+![image-20220302170610071](01Django.assets/image-20220302170610071.png)
 
 
 
@@ -310,15 +325,56 @@ def index(request):
 
 
 
+### form
+
+- 속성
+
+  - action: 입력 데이터가 전송될 URL지정
+
+  - method: 입력 데이터  전달 방식 지정
+
+- input 요소
+
+  - name
+  - 중복 가능, 양식을 제출 했을 때 name이라는 이름에 설정된 값을 넘겨서 값을 가져올 수 있음
+  - GET/POST방식으로 서버에 전달하는 파라미터로 매핑하는 것
+
+- label
+
+  - label을 input요소와 연결
+    - input에 id속성 부여
+    - label에는 input의 id와 동일한 값의 for 속성이 필요
 
 
 
+### Throw and Catch
+
+- template에서 html을 만들어주어야한다
+  - 이렇게  만들어 throw에서 작성한 값을 catch에 넘겨 줄 수 있다.
+
+![image-20220308154031531](01Django.assets/image-20220308154031531.png)
+
+![image-20220308154048063](01Django.assets/image-20220308154048063.png)
+
+![image-20220308154059552](01Django.assets/image-20220308154059552.png)
 
 
 
+- 이제 views에서 함수를 만들어준다
+
+![image-20220308154206867](01Django.assets/image-20220308154206867.png)
 
 
 
+### Naming => url, app
+
+##### Naming URL ==> name = 'index' 이부분
+
+app_name은 말그대로 app에 naming을 해주는 것이다
+
+![image-20220308155503023](01Django.assets/image-20220308155503023.png)
 
 
+
+![image-20220308155639796](01Django.assets/image-20220308155639796.png)
 
